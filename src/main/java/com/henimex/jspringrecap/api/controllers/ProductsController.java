@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/products")
@@ -27,7 +28,7 @@ public class ProductsController {
     }
 
     @GetMapping("/get-by-id")
-    public Product getById(@RequestParam("product_id") int product_id){
+    public Optional<Product> getById(@RequestParam("product_id") int product_id){
         return this.productService.getById(product_id);
     }
 }
