@@ -8,13 +8,13 @@ import java.util.List;
 
 public interface ProductDao extends JpaRepository<Product, Integer> {
 
-   Product getByProductName(String productName);
+    Product getByProductName(String productName);
 
-/*     Product getByProductNameAndCategoryId(String ProductName, int categoryId);
+    Product getByProductNameAndCategory_CategoryId(String ProductName, int categoryId);
 
-    List<Product> getByProductNameOrCategoryId(String ProductName, int categoryId);
+    List<Product> getByProductNameOrCategory_CategoryId(String ProductName, int categoryId);
 
-    List<Product> getByCategoryIdIn(List<Integer> categories);
+    List<Product> getByCategoryIn(List<Integer> categories);
 
     List<Product> getByProductNameContains(String productName);
 
@@ -23,7 +23,6 @@ public interface ProductDao extends JpaRepository<Product, Integer> {
     List<Product> getByProductNameEndsWith(String productName);
 
     //JPQL
-
-    @Query("From Product where productName =:productName and category=:categoryId")
-    List<Product> getByProductAndCategory(String productName, int categoryId);*/
+    @Query("From Product where productName =:productName and category.categoryId=:categoryId")
+    List<Product> getByNameAndCategory(String productName, int categoryId);
 }

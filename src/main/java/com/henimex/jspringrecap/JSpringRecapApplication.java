@@ -13,6 +13,6 @@ public class JSpringRecapApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(JSpringRecapApplication.class, args);
-        System.out.println("At The End a Spring Project Perfectly Runs With Connected PostgreDB");
+        System.out.println("Compile Successful. Listening http://localhost:8080/swagger-ui.html");
     }
 }

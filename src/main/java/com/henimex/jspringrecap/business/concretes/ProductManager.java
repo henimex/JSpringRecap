@@ -40,4 +40,44 @@ public class ProductManager implements ProductService {
         return new SuccessDataResult<>(this.productDao.findById(product_id),
                 "Get by Id Operation Completed v2");
     }
+
+    @Override
+    public DataResult<Product> getByProductName(String productName) {
+        return null;
+    }
+
+    @Override
+    public DataResult<Product> getByProductNameAndCategory_CategoryId(String ProductName, int categoryId) {
+        return null;
+    }
+
+    @Override
+    public DataResult<List<Product>> getByProductNameOrCategory_CategoryId(String ProductName, int categoryId) {
+        return null;
+    }
+
+    @Override
+    public DataResult<List<Product>> getByCategoryIn(List<Integer> categories) {
+        return null;
+    }
+
+    @Override
+    public DataResult<List<Product>> getByProductNameContains(String productName) {
+        return null;
+    }
+
+    @Override
+    public DataResult<List<Product>> getByProductNameStartsWith(String productName) {
+        return null;
+    }
+
+    @Override
+    public DataResult<List<Product>> getByProductNameEndsWith(String productName) {
+        return null;
+    }
+
+    @Override
+    public DataResult<List<Product>> getByNameAndCategory(String productName, int categoryId) {
+        return null;
+    }
 }
