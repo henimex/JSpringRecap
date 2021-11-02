@@ -8,9 +8,11 @@ import com.henimex.jspringrecap.core.utilities.results.SuccessResult;
 import com.henimex.jspringrecap.dataAccess.abstracts.ProductDao;
 import com.henimex.jspringrecap.entities.concretes.Product;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
-import java.lang.reflect.Method;
 import java.util.List;
 import java.util.Optional;
 
@@ -28,6 +30,19 @@ public class ProductManager implements ProductService {
     @Override
     public DataResult<List<Product>> getAll() {
         return new SuccessDataResult<>(this.productDao.findAll(), "Data Load Successful");
+    }
+
+    @Override
+    public DataResult<List<Product>> getAllSorted() {
+        Sort sort = Sort.by(Sort.Direction.ASC,"productName");
+        return new SuccessDataResult<>(this.productDao.findAll(sort), "Data Load Successful");
+    }
+
+    @Override
+    public DataResult<List<Product>> getAll(int pageNo, int pageSize) {
+        Pageable pageable = PageRequest.of(pageNo - 1, pageSize);
+        var result = this.productDao.findAll(pageable);
+        return new SuccessDataResult<>(result.getContent());
     }
 
     @Override
@@ -49,17 +64,17 @@ public class ProductManager implements ProductService {
 
     @Override
     public DataResult<Product> getByProductNameAndCategory_CategoryId(String productName, int categoryId) {
-        return new SuccessDataResult<>(this.productDao.getByProductNameAndCategory_CategoryId(productName,categoryId) , "Data Load Successful");
+        return new SuccessDataResult<>(this.productDao.getByProductNameAndCategory_CategoryId(productName, categoryId), "Data Load Successful");
     }
 
     @Override
     public DataResult<List<Product>> getByProductNameOrCategory_CategoryId(String productName, int categoryId) {
-        return new SuccessDataResult<>(this.productDao.getByProductNameOrCategory_CategoryId(productName,categoryId), "Data Load Successful");
+        return new SuccessDataResult<>(this.productDao.getByProductNameOrCategory_CategoryId(productName, categoryId), "Data Load Successful");
     }
 
     @Override
     public DataResult<List<Product>> getByCategoryIn(List<Integer> categories) {
-        return new SuccessDataResult<>(this.productDao.getByCategoryIn(categories), "Data Load Successful");
+        return new SuccessDataResult<>(this.productDao.getByCategory_CategoryIdIn(categories), "Data Load Successful");
     }
 
     @Override

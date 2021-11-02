@@ -1,6 +1,6 @@
 package com.henimex.jspringrecap.core.utilities.results;
 
-public class DataResult<T> extends Result{
+public class DataResult<T> extends Result {
 
     private T data;
 

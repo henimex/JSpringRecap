@@ -1,5 +1,6 @@
 package com.henimex.jspringrecap.configurations;
 
+
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import springfox.documentation.builders.RequestHandlerSelectors;
@@ -28,7 +29,7 @@ public class SwaggerConfig {
     private ApiInfo apiInfo() {
         return new ApiInfo(
                 "Java SpringBoot Rest API",
-                "Using PostgreSQL Database by j.Henimex",
+                "http://localhost:8080/swagger-ui.html \nUsing PostgreSQL Database by j.Henimex ",
                 "a.1.0.21",
                 "Terms of Use Free",
                 new Contact("Joseph HenimeX", "call: 0543 502 43 26", "henimex@gmail.com"),

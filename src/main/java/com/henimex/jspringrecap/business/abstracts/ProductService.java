@@ -3,14 +3,19 @@ package com.henimex.jspringrecap.business.abstracts;
 import com.henimex.jspringrecap.core.utilities.results.DataResult;
 import com.henimex.jspringrecap.core.utilities.results.Result;
 import com.henimex.jspringrecap.entities.concretes.Product;
-import org.springframework.data.jpa.repository.Query;
 
 import java.util.List;
 import java.util.Optional;
 
 public interface ProductService {
     DataResult<List<Product>> getAll();
+
+    DataResult<List<Product>> getAllSorted();
+
+    DataResult<List<Product>> getAll(int pageNo, int pageSize);
+
     Result add(Product product);
+
     DataResult<Optional<Product>> getById(int product_id);
 
     DataResult<Product> getByProductName(String productName);

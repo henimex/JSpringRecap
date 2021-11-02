@@ -1,6 +1,6 @@
 package com.henimex.jspringrecap.core.utilities.results;
 
-public class SuccessDataResult<T> extends DataResult<T>{
+public class SuccessDataResult<T> extends DataResult<T> {
 
     public SuccessDataResult(T data) {
         super(data, true);
@@ -10,12 +10,12 @@ public class SuccessDataResult<T> extends DataResult<T>{
         super(data, true, message);
     }
 
-    public SuccessDataResult(String message){
-        super(null,true,message);
+    public SuccessDataResult(String message) {
+        super(null, true, message);
     }
 
-    public SuccessDataResult(){
-        super(null,true);
+    public SuccessDataResult() {
+        super(null, true);
     }
 }
 
