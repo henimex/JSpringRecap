@@ -7,6 +7,7 @@ import com.henimex.jspringrecap.core.utilities.results.SuccessDataResult;
 import com.henimex.jspringrecap.core.utilities.results.SuccessResult;
 import com.henimex.jspringrecap.dataAccess.abstracts.ProductDao;
 import com.henimex.jspringrecap.entities.concretes.Product;
+import com.henimex.jspringrecap.entities.dtos.ProductWithCategoryDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -95,5 +96,10 @@ public class ProductManager implements ProductService {
     @Override
     public DataResult<List<Product>> getByNameAndCategory(String productName, int categoryId) {
         return new SuccessDataResult<>(this.productDao.getByNameAndCategory(productName, categoryId), "Data Load Successful");
+    }
+
+    @Override
+    public DataResult<List<ProductWithCategoryDto>> getProductDetails() {
+        return new SuccessDataResult<>(this.productDao.getProductDetails(),"DTO Table Listed.");
     }
 }

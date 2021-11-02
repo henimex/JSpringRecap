@@ -4,6 +4,7 @@ import com.henimex.jspringrecap.business.abstracts.ProductService;
 import com.henimex.jspringrecap.core.utilities.results.DataResult;
 import com.henimex.jspringrecap.core.utilities.results.Result;
 import com.henimex.jspringrecap.entities.concretes.Product;
+import com.henimex.jspringrecap.entities.dtos.ProductWithCategoryDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -90,6 +91,11 @@ public class ProductsController {
     @GetMapping("getBy-nameAndCategory")
     public DataResult<List<Product>> getByNameAndCategory(@RequestParam String productName, int categoryId) {
         return this.productService.getByNameAndCategory(productName, categoryId);
+    }
+
+    @GetMapping("getBy-ProductDetails")
+    public DataResult<List<ProductWithCategoryDto>> getProductDetails(){
+        return this.productService.getProductDetails();
     }
 
 

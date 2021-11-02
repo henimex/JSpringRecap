@@ -3,6 +3,7 @@ package com.henimex.jspringrecap.business.abstracts;
 import com.henimex.jspringrecap.core.utilities.results.DataResult;
 import com.henimex.jspringrecap.core.utilities.results.Result;
 import com.henimex.jspringrecap.entities.concretes.Product;
+import com.henimex.jspringrecap.entities.dtos.ProductWithCategoryDto;
 
 import java.util.List;
 import java.util.Optional;
@@ -33,4 +34,6 @@ public interface ProductService {
     DataResult<List<Product>> getByProductNameEndsWith(String productName);
 
     DataResult<List<Product>> getByNameAndCategory(String productName, int categoryId);
+
+    DataResult<List<ProductWithCategoryDto>> getProductDetails();
 }

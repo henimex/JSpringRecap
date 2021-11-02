@@ -1,6 +1,7 @@
 package com.henimex.jspringrecap.dataAccess.abstracts;
 
 import com.henimex.jspringrecap.entities.concretes.Product;
+import com.henimex.jspringrecap.entities.dtos.ProductWithCategoryDto;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
@@ -25,4 +26,8 @@ public interface ProductDao extends JpaRepository<Product, Integer> {
     //JPQL
     @Query("From Product where productName =:productName and category.categoryId=:categoryId")
     List<Product> getByNameAndCategory(String productName, int categoryId);
+
+    @Query("Select new com.henimex.jspringrecap.entities.dtos.ProductWithCategoryDto" +
+            "(p.id, p.productName, c.categoryName) From Category c Inner Join c.products p")
+    List<ProductWithCategoryDto> getProductDetails();
 }
