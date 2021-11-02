@@ -1,6 +1,5 @@
 package com.henimex.jspringrecap.entities.concretes;
 
-
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -13,6 +12,7 @@ import javax.persistence.*;
 @Table(name = "products")
 @AllArgsConstructor
 @NoArgsConstructor
+
 public class Product {
 
     @Id
@@ -30,7 +30,7 @@ public class Product {
     private short unitsInStock;
 
     @Column(name = "quantity_per_unit")
-    private String quantityPerUint;
+    private String quantityPerUnit;
 
     @ManyToOne()
     @JoinColumn(name = "category_id")

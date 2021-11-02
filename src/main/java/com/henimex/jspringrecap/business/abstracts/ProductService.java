@@ -15,9 +15,9 @@ public interface ProductService {
 
     DataResult<Product> getByProductName(String productName);
 
-    DataResult<Product> getByProductNameAndCategory_CategoryId(String ProductName, int categoryId);
+    DataResult<Product> getByProductNameAndCategory_CategoryId(String productName, int categoryId);
 
-    DataResult<List<Product>> getByProductNameOrCategory_CategoryId(String ProductName, int categoryId);
+    DataResult<List<Product>> getByProductNameOrCategory_CategoryId(String productName, int categoryId);
 
     DataResult<List<Product>> getByCategoryIn(List<Integer> categories);
 
