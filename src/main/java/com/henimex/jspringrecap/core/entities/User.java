@@ -26,5 +26,5 @@ public class User {
     @NotNull
     @NotBlank
     @Column(name = "password")
-    private String passord;
+    private String password;
 }

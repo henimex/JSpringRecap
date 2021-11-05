@@ -24,7 +24,7 @@ public class UserManager implements UserService {
     @Override
     public Result add(User user) {
         this.userDao.save(user);
-        return new SuccessResult();
+        return new SuccessResult("User added Successfully");
     }
 
     @Override
